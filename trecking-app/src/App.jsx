@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import Sign from "./signin-up/Sign";
+import React from "react";
+import { createBrowserRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Auth from "./pages/auth/Auth";
+
 import "./App.css";
 
 function App() {
 
   return (
-    <div>
-      <Sign />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Auth />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

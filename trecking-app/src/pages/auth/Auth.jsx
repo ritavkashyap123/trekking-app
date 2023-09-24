@@ -1,33 +1,52 @@
-import React, { useState } from "react";
-import "./Sign.css";
+import React, { useState, useEffect } from "react";
 
-function Sign() {
-  // const signUpButton = document.getElementById("signUp");
-  // const signInButton = document.getElementById("signIn");
-  // const container = document.getElementById("container");
+import axios from "axios";
 
-  // signUpButton.addEventListener("click", () =>
-  //   container.classList.add("right-panel-active")
-  // );
+import "./auth.css";
 
-  // signInButton.addEventListener("click", () =>
-  //   container.classList.remove("right-panel-active")
-  // );
-
+function Auth() {
   const [isSignUpActive, setIsSignUpActive] = useState(false);
-
   const handleSignUpClick = () => {
     setIsSignUpActive(true);
   };
-
   const handleSignInClick = () => {
     setIsSignUpActive(false);
+  };
+
+  const [fname, setFName] = useState('');
+  const [lname, setLName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phno, setPhno] = useState('');
+  const [password, setPassword] = useState('');
+  const [authPassword, setAuthPassword] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const dataToSend = {
+      FirstName: fname,
+      LastName: lname,
+      phone_number: `${phno}`,
+      email: email,
+      password: password,
+    };
+    console.log(dataToSend)
+
+    const apiUrl = "http://192.168.1.37:8000/sign_up"
+    axios
+      .post(apiUrl, dataToSend)
+      .then((response) => {
+        console.log("Data sent successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
 
   return (
     <div className={`container ${isSignUpActive ? "right-panel-active" : ""}`}>
       <div className="form-container sign-up-container">
-        <form action="#">
+        <form onSubmit={handleSubmit}>
           <h1>Create Account</h1>
           {/* <div className="social-container">
               <a href="#" className="social">
@@ -41,11 +60,56 @@ function Sign() {
               </a>
             </div> */}
           <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="number" placeholder="Phone No" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <div className="name-main">
+            <div className="fname">
+              <input
+                type="text"
+                id="fname"
+                placeholder="First Name"
+                value={fname}
+                onChange={(e)=>{setFName(e.target.value)}}
+              />
+            </div>
+            <div className="lname">
+              <input
+                type="text"
+                id="lname"
+                placeholder="Last Name"
+                value={lname}
+                onChange={(e)=>{setLName(e.target.value)}}
+              />
+            </div>
+          </div>
+          <input
+            type="number"
+            id="phno"
+            placeholder="Phone No"
+            value={phno}
+            onChange={(e)=>{setPhno(e.target.value)}}
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
+          />
+          <input
+            type="password"
+            id="authPassword"
+            placeholder="Confirm Password"
+            value={authPassword}
+            onChange={(e)=>{setAuthPassword(e.target.value)}}
+          />
           <button style={{ marginTop: 10 }}>Sign Up</button>
+          {console.log()}
         </form>
       </div>
       <div className="form-container sign-in-container">
@@ -93,4 +157,4 @@ function Sign() {
   );
 }
 
-export default Sign;
+export default Auth;
