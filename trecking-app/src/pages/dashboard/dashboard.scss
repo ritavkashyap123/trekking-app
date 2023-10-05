@@ -1,0 +1,66 @@
+.Dashboard {
+    overflow-y: auto;
+    position: sticky;
+    height: 90vh;
+  .hello {
+    font-size: 36px;
+    margin-left: 3rem;
+    font-weight: bold;
+    color: #008079;
+  }
+  .welcome {
+    font-size: 24px;
+    margin-left: 3rem;
+  }
+  .cards {
+    margin: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .cardBox {
+    //   border: 1px solid black;
+      background: #f0f0f0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5rem;
+      min-width: 20%;
+      height: 6rem;
+      overflow: hidden;
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 2px 2px 5px rgb(88, 88, 88);
+        transition: 0.5s;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.8rem;
+        font-size: 1.5em;
+      }
+      .icon1 {
+        font-size: 3rem;
+        padding: 1rem;
+        color: #00beb5;
+      }
+      .icon2 {
+        font-size: 3rem;
+        padding: 1rem;
+        color: #0297ee;
+      }
+      .icon3 {
+        font-size: 3rem;
+        padding: 1rem;
+        color: #df7d0d;
+      }
+      .icon4 {
+        font-size: 3rem;
+        padding: 1rem;
+        color: grey;
+      }
+    }
+  }
+}

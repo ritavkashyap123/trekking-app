@@ -1,0 +1,6 @@
+- Signup
+    -Form Validation
+    -Complexity checker of password
+    -password == authPassword
+- Sign in should be complete
+- JWT
