@@ -1,6 +1,61 @@
-.Tracks{
-    overflow-y: auto;
-    position: sticky;
-    height: 90vh;
-    padding-left: 3rem;
+.Tracks {
+  overflow-y: auto;
+  position: sticky;
+  height: 85vh;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+        border: 1px solid black;
+        padding: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover{
+            background: #06ddd2;
+            transition: 0.3s;
+            color: #1e1e1e;
+            border: 1px solid #06ddd2;
+        }
+    }
+  }
+  .edit{
+    border: 1px solid black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+      background: green;
+      transition: 0.3s;
+      color: #fff;
+      border: 1px solid green;
+    }
+  }
+  .delete{
+    border: 1px solid black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+      background: red;
+      transition: 0.3s;
+      color: #fff;
+      border: 1px solid red;
+    }
+  }
+}
+
+.Tracks::-webkit-scrollbar{
+    display: none;
 }
